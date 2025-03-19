@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chidsanuphong Pengchai | Software Engineer</title>
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --primary-color: #2563eb;
+                --secondary-color: #1e40af;
+                --light-color: #f3f4f6;
+                --dark-color: #1f2937;
+                --text-color: #374151;
+                --border-color: #e5e7eb;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            body {
+                background-color: var(--light-color);
+                color: var(--text-color);
+                line-height: 1.6;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            header {
+                background: linear-gradient(
+                    to right,
+                    var(--primary-color),
+                    var(--secondary-color)
+                );
+                color: white;
+                padding: 30px 0;
+                text-align: center;
+            }
+
+            .profile-info {
+                margin-bottom: 20px;
+            }
+
+            .profile-info h1 {
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+            }
+
+            .contact-links {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+                margin-top: 15px;
+            }
+
+            .contact-links a {
+                color: white;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                transition: transform 0.3s;
+            }
+
+            .contact-links a:hover {
+                transform: translateY(-3px);
+            }
+
+            section {
+                background-color: white;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                padding: 25px;
+                margin: 20px 0;
+            }
+
+            h2 {
+                color: var(--primary-color);
+                border-bottom: 2px solid var(--border-color);
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+            }
+
+            .education-item,
+            .experience-item,
+            .project-item,
+            .involvement-item {
+                margin-bottom: 25px;
+            }
+
+            .education-item:last-child,
+            .experience-item:last-child,
+            .project-item:last-child,
+            .involvement-item:last-child {
+                margin-bottom: 0;
+            }
+
+            .education-header,
+            .experience-header,
+            .project-header,
+            .involvement-header {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+            }
+
+            .institution,
+            .company,
+            .project-title,
+            .role {
+                font-weight: bold;
+                font-size: 1.1rem;
+            }
+
+            .duration {
+                color: #6b7280;
+                font-style: italic;
+            }
+
+            ul {
+                list-style-position: inside;
+                margin-left: 20px;
+            }
+
+            .skills-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .skill-category {
+                flex: 1;
+                min-width: 250px;
+            }
+
+            .skill-category h3 {
+                color: var(--secondary-color);
+                margin-bottom: 10px;
+            }
+
+            .skill-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .skill-item {
+                background-color: #e0e7ff;
+                color: var(--primary-color);
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-size: 0.9rem;
+            }
+
+            footer {
+                text-align: center;
+                padding: 20px;
+                margin-top: 20px;
+                color: #6b7280;
+            }
+
+            @media (max-width: 768px) {
+                .education-header,
+                .experience-header,
+                .project-header,
+                .involvement-header {
+                    flex-direction: column;
+                }
+
+                .skills-container {
+                    flex-direction: column;
+                }
+
+                .profile-info h1 {
+                    font-size: 2rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div class="profile-info">
+                    <h1>Chidsanuphong Pengchai</h1>
+                    <p>Software Engineer | Data Science Enthusiast</p>
+                    <div class="contact-links">
+                        <a href="mailto:Chidsanuphong3@gmail.com"
+                            ><i class="fas fa-envelope"></i>
+                            Chidsanuphong3@gmail.com</a
+                        >
+                        <a href="tel:0650474865"
+                            ><i class="fas fa-phone"></i> 065-047-4865</a
+                        >
+                        <a
+                            href="https://www.linkedin.com/in/chidsanuphong-pengchai/"
+                            target="_blank"
+                            ><i class="fab fa-linkedin"></i> LinkedIn</a
+                        >
+                        <a href="https://github.com/pcismyname" target="_blank"
+                            ><i class="fab fa-github"></i> GitHub</a
+                        >
+                        <a href="https://medium.com/@c.pengchai" target="_blank"
+                            ><i class="fab fa-medium"></i> Medium</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            <section id="education">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <div class="education-header">
+                        <div class="institution">Thammasat University</div>
+                        <div class="duration">Graduation: June 2025</div>
+                    </div>
+                    <p>
+                        Bachelor of Engineering, Major in Software Engineering
+                        (4th year)
+                    </p>
+                    <p>GPA: 3.87/4.00</p>
+                    <p>Full scholarship for 4 years</p>
+                </div>
+            </section>
+
+            <section id="skills">
+                <h2>Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>Programming & Tools</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">NumPy</span>
+                            <span class="skill-item">Pandas</span>
+                            <span class="skill-item">GeoPandas</span>
+                            <span class="skill-item">PyTorch</span>
+                            <span class="skill-item">Excel</span>
+                            <span class="skill-item">Sci-Kit learn</span>
+                            <span class="skill-item">Seaborn</span>
+                            <span class="skill-item">Linux</span>
+                            <span class="skill-item">ESXi</span>
+                            <span class="skill-item">Grafana</span>
+                            <span class="skill-item">Streamlit</span>
+                            <span class="skill-item">MySQL</span>
+                            <span class="skill-item">MongoDB</span>
+                            <span class="skill-item">Microsoft Azure</span>
+                            <span class="skill-item">Flask</span>
+                            <span class="skill-item">FastAPI</span>
+                            <span class="skill-item">HTML</span>
+                            <span class="skill-item">CSS</span>
+                            <span class="skill-item">JavaScript</span>
+                            <span class="skill-item">Svelte</span>
+                            <span class="skill-item">React</span>
+                            <span class="skill-item">Java</span>
+                            <span class="skill-item">Kotlin</span>
+                            <span class="skill-item">Design Pattern</span>
+                            <span class="skill-item">Docker</span>
+                            <span class="skill-item">MQTT</span>
+                            <span class="skill-item">RabbitMQ</span>
+                            <span class="skill-item">Git</span>
+                            <span class="skill-item">GitHub</span>
+                            <span class="skill-item">C/C++</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Soft Skills</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Leadership</span>
+                            <span class="skill-item">Team Management</span>
+                            <span class="skill-item">Mentorship</span>
+                            <span class="skill-item">Problem-Solving</span>
+                            <span class="skill-item">Communication</span>
+                            <span class="skill-item">Collaboration</span>
+                            <span class="skill-item">Adaptability</span>
+                            <span class="skill-item">Decision-Making</span>
+                            <span class="skill-item">Time Management</span>
+                            <span class="skill-item">Critical Thinking</span>
+                            <span class="skill-item">Public Speaking</span>
+                            <span class="skill-item"
+                                >Workshop Facilitation</span
+                            >
+                            <span class="skill-item">Design Thinking</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Language</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">English (TOEIC 895)</span>
+                            <span class="skill-item">Thai (Native)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience">
+                <h2>Experience</h2>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company">
+                            The Siam Cement (Thung Song) Co, Ltd • Full-stack
+                            developer
+                        </div>
+                        <div class="duration">
+                            Jan 2025 – May 2025 (Expected) • Co-op internship
+                        </div>
+                    </div>
+                    <ul>
+                        <li>
+                            Refactor the existing system's code to improve
+                            maintainability.
+                        </li>
+                        <li>
+                            Resolved Technical Issues and Enhanced
+                            Administrative Features for the Job Request System.
+                        </li>
+                        <li>
+                            Gained requirements directly from users (As-is) and
+                            developed solutions for maintenance department
+                            (To-be).
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company">
+                            Kasikorn Business-Technology Group, KLabs • Data
+                            science intern
+                        </div>
+                        <div class="duration">
+                            Jun 2024 – Nov 2024 • 6 months
+                        </div>
+                    </div>
+                    <ul>
+                        <li>
+                            Developed and optimized web scraping algorithms to
+                            extract land map data for the Department of Land.
+                        </li>
+                        <li>
+                            Conducted exploratory data analysis (EDA) on large
+                            land map datasets to uncover patterns and insights.
+                        </li>
+                        <li>
+                            Applied DBSCAN to filter and organize land map data,
+                            specifically identifying and isolating village
+                            regions.
+                        </li>
+                        <li>
+                            Designed and implemented a machine learning model
+                            pipeline to classify land parcels into their
+                            villages.
+                        </li>
+                        <li>
+                            Developed a Proof of Concept using the Segment
+                            Anything model (SAM) to segment satellite images.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company">
+                            CILS Lab, Thammasat University • Researcher
+                            Assistant
+                        </div>
+                        <div class="duration">
+                            Jan 2023 – May 2024 • 1 year 5 months
+                        </div>
+                    </div>
+                    <ul>
+                        <li>
+                            Labeled and prepared datasets for a vehicle
+                            detection and tracking project.
+                        </li>
+                        <li>
+                            Investigated and studied cutting-edge models for
+                            object detection.
+                        </li>
+                        <li>
+                            Exported deep learning models (YOLO) from PyTorch to
+                            ONNX format for deployment on edge devices.
+                        </li>
+                        <li>
+                            Benchmarked various YOLO models to determine the
+                            best option for speed estimation tasks.
+                        </li>
+                        <li>
+                            Containerized models and systems using Docker and
+                            utilized RabbitMQ to send data across workers.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="projects">
+                <h2>Projects & Publications</h2>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-title">
+                            Toward the Development of an Oral-diagnosis
+                            Framework: A Case Study of Teeth Segmentation and
+                            Numbering in Bitewing Radiographs via YOLO Models
+                        </div>
+                        <div class="duration">2024</div>
+                    </div>
+                    <p><strong>Role:</strong> Project Manager, Co-author</p>
+                    <p>
+                        <strong>Conference:</strong> The International
+                        Conference on Cybernetics and Innovations (ICCI 2024)
+                    </p>
+                    <p>
+                        <strong>Competition:</strong> Gold medal, The 4th
+                        International Exhibition of Inventions of Thailand 2024
+                    </p>
+                    <p>
+                        <strong>DOI:</strong>
+                        <a
+                            href="https://doi.org/10.1109/ICCI60780.2024.10532585"
+                            target="_blank"
+                            >10.1109/ICCI60780.2024.10532585</a
+                        >
+                    </p>
+                    <ul>
+                        <li>
+                            Led a team of five members, along with a domain
+                            expert (dentist), and a supervisor to gather
+                            domain-specific insights through collaboration.
+                        </li>
+                        <li>
+                            Conducted thorough requirement-gathering with user,
+                            ensuring that the solution aligned with their
+                            objectives.
+                        </li>
+                        <li>
+                            Designed and directed the execution of experiments
+                            utilizing YOLO models.
+                        </li>
+                        <li>
+                            Oversaw the design and setup of the web architecture
+                            for model deployment.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="involvement">
+                <h2>Campus & Community Involvement</h2>
+
+                <div class="involvement-item">
+                    <div class="involvement-header">
+                        <div class="role">
+                            Part time tutor for TU-PINE, Thammasat University
+                        </div>
+                        <div class="duration">
+                            Aug 2023 - Dec 2023 • 4 months
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Tutored CN204 Probability and Random Processes.</li>
+                        <li>Tutored SF211 Object-Oriented Programming.</li>
+                    </ul>
+                </div>
+
+                <div class="involvement-item">
+                    <div class="involvement-header">
+                        <div class="role">
+                            Head of Technical Core Team, Google Developer
+                            Student Club
+                        </div>
+                        <div class="duration">
+                            Nov 2023 - Apr 2024 • 8 months
+                        </div>
+                    </div>
+                    <ul>
+                        <li>
+                            Managed a team of 15 members during the Introduction
+                            to Machine Learning event, ensuring effective
+                            coordination and task delegation.
+                        </li>
+                        <li>
+                            Provided consultation and guidance to team members,
+                            helping them understand key machine learning
+                            concepts and implementation strategies.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Chidsanuphong Pengchai. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>
