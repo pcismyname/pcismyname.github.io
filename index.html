@@ -1,783 +1,1024 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Chidsanuphong Pengchai - Software Engineer and Data Science professional with experience in machine learning, computer vision, and full-stack development">
-    <meta name="keywords" content="Software Engineer, Data Science, Machine Learning, YOLO, Python, Thailand, Thammasat University">
-    <title>Chidsanuphong Pengchai | Software Engineer & Data Scientist</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #0f66b8;
-            --secondary-color: #073d75;
-            --accent-color: #ff602c;
-            --light-color: #f8f9fc;
-            --dark-color: #1f2937;
-            --text-color: #374151;
-            --border-color: #e5e7eb;
-            --highlight-bg: #e2f0fd;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--light-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        /* Navigation */
-        nav {
-            background-color: var(--dark-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 5px 10px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        .nav-name {
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        
-        /* Header */
-        header {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 60px 0 40px;
-            text-align: center;
-            position: relative;
-        }
-        
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50px;
-            background: linear-gradient(to right bottom, transparent 49%, var(--light-color) 50%);
-        }
-        
-        .profile-info {
-            margin-bottom: 25px;
-        }
-        
-        .profile-info h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
-        }
-        
-        .profile-tagline {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-        
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 25px;
-        }
-        
-        .contact-links a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 8px 12px;
-            border-radius: 6px;
-        }
-        
-        .contact-links a:hover {
-            transform: translateY(-3px);
-            background-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Profile Summary */
-        .profile-summary {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            padding: 25px;
-            margin: -25px auto 30px;
-            position: relative;
-            z-index: 10;
-            max-width: 950px;
-            line-height: 1.7;
-        }
-        
-        .highlight {
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-        
-        /* Main sections */
-        section {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            padding: 30px;
-            margin: 30px 0;
-        }
-        
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 12px;
-            margin-bottom: 25px;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        h2 i {
-            color: var(--accent-color);
-            font-size: 1.2rem;
-        }
-        
-        .education-item, .experience-item, .project-item, .involvement-item {
-            margin-bottom: 30px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .education-item:last-child, .experience-item:last-child, .project-item:last-child, .involvement-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-        
-        .education-header, .experience-header, .project-header, .involvement-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .institution, .company, .project-title, .role {
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: var(--dark-color);
-            margin-bottom: 5px;
-            width: 100%;
-        }
-        
-        .institution-details, .company-details, .project-details, .role-details {
-            flex: 1;
-            min-width: 280px;
-        }
-        
-        .position {
-            color: var(--primary-color);
-            font-weight: 500;
-            margin-bottom: 5px;
-        }
-        
-        .duration {
-            color: #6b7280;
-            font-size: 0.95rem;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .duration i {
-            color: var(--primary-color);
-        }
-        
-        .achievements {
-            margin-top: 15px;
-        }
-        
-        ul {
-            list-style-type: none;
-            margin-left: 5px;
-        }
-        
-        ul li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 20px;
-        }
-        
-        ul li::before {
-            content: '•';
-            color: var(--accent-color);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        .key-achievement {
-            background-color: var(--highlight-bg);
-            border-left: 3px solid var(--primary-color);
-            padding: 8px 15px;
-            margin: 15px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        
-        .key-achievement-title {
-            font-weight: 600;
-            color: var(--primary-color);
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        /* Skills section */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-        }
-        
-        .skill-category {
-            flex: 1;
-        }
-        
-        .skill-category h3 {
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .skill-category h3 i {
-            color: var(--accent-color);
-        }
-        
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .skill-item {
-            background-color: var(--highlight-bg);
-            color: var(--primary-color);
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 0.95rem;
-            transition: all 0.2s;
-        }
-        
-        .skill-item:hover {
-            background-color: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        /* Project highlights */
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 10px 0;
-        }
-        
-        .project-tech span {
-            background-color: #f0f5ff;
-            color: var(--primary-color);
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 0.85rem;
-        }
-        
-        .award-badge {
-            display: inline-flex;
-            align-items: center;
-            background-color: #fdf2f8;
-            color: #e11d48;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-top: 10px;
-            gap: 5px;
-        }
-        
-        /* Print friendly */
-        @media print {
-            body {
-                background-color: white;
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Chidsanuphong Pengchai - Software Engineer and Data Science professional with experience in machine learning, computer vision, and full-stack development"
+        />
+        <meta
+            name="keywords"
+            content="Software Engineer, Data Science, Machine Learning, YOLO, Python, Thailand, Thammasat University"
+        />
+        <title>
+            Chidsanuphong Pengchai | Software Engineer & Data Scientist
+        </title>
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --primary-color: #0f66b8;
+                --secondary-color: #073d75;
+                --accent-color: #ff602c;
+                --light-color: #f8f9fc;
+                --dark-color: #1f2937;
+                --text-color: #374151;
+                --border-color: #e5e7eb;
+                --highlight-bg: #e2f0fd;
             }
-            
-            nav {
-                display: none;
-            }
-            
-            header {
-                background: white;
-                color: black;
-                padding: 20px 0;
-                text-align: left;
-            }
-            
-            header::after {
-                display: none;
-            }
-            
-            .contact-links a {
-                color: var(--primary-color);
-                background: none;
+
+            * {
+                margin: 0;
                 padding: 0;
+                box-sizing: border-box;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             }
-            
-            section {
-                box-shadow: none;
-                margin: 20px 0;
-                padding: 15px 0;
-                page-break-inside: avoid;
+
+            body {
+                background-color: var(--light-color);
+                color: var(--text-color);
+                line-height: 1.6;
             }
-            
-            .profile-summary {
-                box-shadow: none;
-                border: 1px solid #ddd;
+
+            .container {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 20px;
             }
-            
-            .skill-item:hover {
-                transform: none;
-                background-color: var(--highlight-bg);
-                color: var(--primary-color);
+
+            /* Navigation */
+            nav {
+                background-color: var(--dark-color);
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
             }
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
+
+            .nav-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 20px;
+                max-width: 1100px;
+                margin: 0 auto;
+            }
+
             .nav-links {
+                display: flex;
+                gap: 20px;
+            }
+
+            .nav-links a {
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+                padding: 5px 10px;
+                border-radius: 4px;
+                transition: background-color 0.3s;
+            }
+
+            .nav-links a:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-name {
+                color: white;
+                font-weight: bold;
+                font-size: 1.2rem;
+            }
+
+            /* Header */
+            header {
+                background: linear-gradient(
+                    to right,
+                    var(--primary-color),
+                    var(--secondary-color)
+                );
+                color: white;
+                padding: 60px 0 40px;
+                text-align: center;
+                position: relative;
+            }
+
+            header::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 50px;
+                background: linear-gradient(
+                    to right bottom,
+                    transparent 49%,
+                    var(--light-color) 50%
+                );
+            }
+
+            .profile-info {
+                margin-bottom: 25px;
+            }
+
+            .profile-info h1 {
+                font-size: 2.8rem;
+                margin-bottom: 10px;
+                letter-spacing: -0.5px;
+            }
+
+            .profile-tagline {
+                font-size: 1.2rem;
+                margin-bottom: 20px;
+                font-weight: 300;
+            }
+
+            .contact-links {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 20px;
+                margin-top: 25px;
+            }
+
+            .contact-links a {
+                color: white;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: all 0.3s;
+                background-color: rgba(255, 255, 255, 0.1);
+                padding: 8px 12px;
+                border-radius: 6px;
+            }
+
+            .contact-links a:hover {
+                transform: translateY(-3px);
+                background-color: rgba(255, 255, 255, 0.2);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Profile Summary */
+            .profile-summary {
+                background-color: white;
+                border-radius: 8px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+                padding: 25px;
+                margin: -25px auto 30px;
+                position: relative;
+                z-index: 10;
+                max-width: 950px;
+                line-height: 1.7;
+            }
+
+            .highlight {
+                color: var(--accent-color);
+                font-weight: 600;
+            }
+
+            /* Main sections */
+            section {
+                background-color: white;
+                border-radius: 8px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+                padding: 30px;
+                margin: 30px 0;
+            }
+
+            h2 {
+                color: var(--primary-color);
+                border-bottom: 2px solid var(--border-color);
+                padding-bottom: 12px;
+                margin-bottom: 25px;
+                font-size: 1.5rem;
+                display: flex;
+                align-items: center;
                 gap: 10px;
             }
-            
-            .education-header, .experience-header, .project-header, .involvement-header {
-                flex-direction: column;
+
+            h2 i {
+                color: var(--accent-color);
+                font-size: 1.2rem;
+            }
+
+            .education-item,
+            .experience-item,
+            .project-item,
+            .involvement-item {
+                margin-bottom: 30px;
+                padding-bottom: 30px;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .education-item:last-child,
+            .experience-item:last-child,
+            .project-item:last-child,
+            .involvement-item:last-child {
+                margin-bottom: 0;
+                padding-bottom: 0;
+                border-bottom: none;
+            }
+
+            .education-header,
+            .experience-header,
+            .project-header,
+            .involvement-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 15px;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .institution,
+            .company,
+            .project-title,
+            .role {
+                font-weight: bold;
+                font-size: 1.2rem;
+                color: var(--dark-color);
+                margin-bottom: 5px;
+                width: 100%;
+            }
+
+            .institution-details,
+            .company-details,
+            .project-details,
+            .role-details {
+                flex: 1;
+                min-width: 280px;
+            }
+
+            .position {
+                color: var(--primary-color);
+                font-weight: 500;
+                margin-bottom: 5px;
+            }
+
+            .duration {
+                color: #6b7280;
+                font-size: 0.95rem;
+                margin-bottom: 5px;
+                display: flex;
+                align-items: center;
                 gap: 5px;
             }
-            
-            .duration {
-                margin-top: 5px;
-                width: 100%;
+
+            .duration i {
+                color: var(--primary-color);
             }
-            
-            .company-details, .institution-details, .project-details, .role-details {
-                width: 100%;
+
+            .achievements {
+                margin-top: 15px;
             }
-            
+
+            ul {
+                list-style-type: none;
+                margin-left: 5px;
+            }
+
+            ul li {
+                margin-bottom: 8px;
+                position: relative;
+                padding-left: 20px;
+            }
+
+            ul li::before {
+                content: "•";
+                color: var(--accent-color);
+                font-weight: bold;
+                position: absolute;
+                left: 0;
+            }
+
+            .key-achievement {
+                background-color: var(--highlight-bg);
+                border-left: 3px solid var(--primary-color);
+                padding: 8px 15px;
+                margin: 15px 0;
+                border-radius: 0 4px 4px 0;
+            }
+
+            .key-achievement-title {
+                font-weight: 600;
+                color: var(--primary-color);
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            /* Skills section */
             .skills-container {
-                grid-template-columns: 1fr;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 25px;
             }
-            
-            .profile-info h1 {
-                font-size: 2.2rem;
+
+            .skill-category {
+                flex: 1;
             }
-            
-            .profile-tagline {
+
+            .skill-category h3 {
+                color: var(--secondary-color);
+                margin-bottom: 15px;
+                padding-bottom: 8px;
+                border-bottom: 1px solid var(--border-color);
                 font-size: 1.1rem;
+                display: flex;
+                align-items: center;
+                gap: 8px;
             }
-            
-            .nav-container {
-                flex-direction: column;
-                padding: 10px;
+
+            .skill-category h3 i {
+                color: var(--accent-color);
             }
-            
-            .nav-name {
-                margin-bottom: 10px;
+
+            .skill-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
             }
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <div class="nav-container">
-            <div class="nav-name">C. Pengchai</div>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#education">Education</a>
-            </div>
-        </div>
-    </nav>
 
-    <header>
-        <div class="container">
-            <div class="profile-info">
-                <h1>Chidsanuphong Pengchai</h1>
-                <p class="profile-tagline">Software Engineer & Data Science Professional</p>
-                <div class="contact-links">
-                    <a href="mailto:Chidsanuphong3@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-                    <a href="https://www.linkedin.com/in/chidsanuphong-pengchai/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="https://github.com/pcismyname" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://medium.com/@c.pengchai" target="_blank"><i class="fab fa-medium"></i> Blogs</a>
-                </div>
-            </div>
-        </div>
-    </header>
-    
-    <div class="container">
-        <section class="profile-summary" id="about">
-            <p>Results-driven <span class="highlight">Software Engineer</span> and <span class="highlight">Data Science professional</span> with hands-on experience in machine learning, computer vision, and full-stack development. Proven track record of deploying ML models, optimizing algorithms, and building user-centered applications. Skilled in leading cross-functional teams and translating complex technical concepts for stakeholders. Currently completing a Bachelor's degree in Software Engineering on full scholarship.</p>
-        </section>
-        
-        <section id="skills">
-            <h2><i class="fas fa-tools"></i> Technical Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3><i class="fas fa-laptop-code"></i> Machine Learning & Data</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">Python</span>
-                        <span class="skill-item">PyTorch</span>
-                        <span class="skill-item">NumPy</span>
-                        <span class="skill-item">Pandas</span>
-                        <span class="skill-item">GeoPandas</span>
-                        <span class="skill-item">Sci-Kit Learn</span>
-                        <span class="skill-item">YOLO Models</span>
-                        <span class="skill-item">Computer Vision</span>
-                        <span class="skill-item">Seaborn</span>
-                        <span class="skill-item">Data Analysis</span>
-                        <span class="skill-item">Model Deployment</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3><i class="fas fa-server"></i> Backend & Infrastructure</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">Flask</span>
-                        <span class="skill-item">FastAPI</span>
-                        <span class="skill-item">MySQL</span>
-                        <span class="skill-item">MongoDB</span>
-                        <span class="skill-item">Docker</span>
-                        <span class="skill-item">Microsoft Azure</span>
-                        <span class="skill-item">MQTT</span>
-                        <span class="skill-item">RabbitMQ</span>
-                        <span class="skill-item">Linux</span>
-                        <span class="skill-item">ESXi</span>
-                        <span class="skill-item">Grafana</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3><i class="fas fa-paint-brush"></i> Frontend Development</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">HTML</span>
-                        <span class="skill-item">CSS</span>
-                        <span class="skill-item">JavaScript</span>
-                        <span class="skill-item">React</span>
-                        <span class="skill-item">Svelte</span>
-                        <span class="skill-item">Streamlit</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3><i class="fas fa-code-branch"></i> Development Tools</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">Git</span>
-                        <span class="skill-item">GitHub</span>
-                        <span class="skill-item">Design Patterns</span>
-                        <span class="skill-item">Java</span>
-                        <span class="skill-item">Kotlin</span>
-                        <span class="skill-item">C/C++</span>
-                        <span class="skill-item">Excel</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3><i class="fas fa-user-tie"></i> Professional Skills</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">Leadership</span>
-                        <span class="skill-item">Team Management</span>
-                        <span class="skill-item">Problem-Solving</span>
-                        <span class="skill-item">Communication</span>
-                        <span class="skill-item">Mentorship</span>
-                        <span class="skill-item">Public Speaking</span>
-                        <span class="skill-item">Workshop Facilitation</span>
-                        <span class="skill-item">Design Thinking</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3><i class="fas fa-language"></i> Languages</h3>
-                    <div class="skill-list">
-                        <span class="skill-item">English (TOEIC 895)</span>
-                        <span class="skill-item">Thai (Native)</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="experience">
-            <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
-            
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div class="company-details">
-                        <div class="company">The Siam Cement (Thung Song) Co, Ltd</div>
-                        <div class="position">Full-stack Developer (Co-op Internship)</div>
-                    </div>
-                    <div class="duration">
-                        <i class="far fa-calendar-alt"></i> Jan 2025 – May 2025 (Expected)
-                    </div>
-                </div>
-                <div class="achievements">
-                   <ul>
-                    <li>Refactored legacy system code, improving maintainability and reducing technical debt by implementing modern design patterns</li>
-                        <li>Resolved technical issues and enhanced administrative features for the Job Request System used by multiple departments</li>
-                        <li>Applied user-centered design principles by gathering requirements directly from users (As-is) and developing tailored solutions for the maintenance department (To-be)</li>
-                    </ul>
-                    <div class="key-achievement">
-                        <span class="key-achievement-title">Key Technologies:</span> 
-                        Full-stack development, Requirements Engineering, System Optimization
-                    </div>
-                </ul>
-                </div>
-            </div>
-                        
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div class="company-details">
-                        <div class="company">Kasikorn Business-Technology Group (KLabs)</div>
-                        <div class="position">Data Science Intern</div>
-                    </div>
-                    <div class="duration">
-                        <i class="far fa-calendar-alt"></i> Jun 2024 – Nov 2024 (6 months)
-                    </div>
-                </div>
-                <div class="achievements">
-                    <ul>
-                        <li>Developed and optimized web scraping algorithms to extract land map data for the Department of Land, successfully processing over 10,000 records</li>
-                        <li>Conducted exploratory data analysis (EDA) on large land map datasets to uncover patterns and insights for business stakeholders</li>
-                        <li>Applied DBSCAN clustering algorithm to filter and organize land map data, specifically identifying and isolating village regions with 92% accuracy</li>
-                        <li>Designed and implemented a machine learning model pipeline to classify land parcels into their respective villages</li>
-                        <li>Developed a Proof of Concept using the Segment Anything model (SAM) to segment satellite images for improved land classification</li>
-                    </ul>
-                    <div class="key-achievement">
-                        <span class="key-achievement-title">Key Technologies:</span> 
-                        Python, Pandas, GeoPandas, DBSCAN, Machine Learning, Segment Anything model (SAM), Web Scraping
-                    </div>
-                </div>
-            </div>
-            
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div class="company-details">
-                        <div class="company">CILS Lab, Thammasat University</div>
-                        <div class="position">Research Assistant</div>
-                    </div>
-                    <div class="duration">
-                        <i class="far fa-calendar-alt"></i> Jan 2023 – May 2024 (1 year 5 months)
-                    </div>
-                </div>
-                <div class="achievements">
-                    <ul>
-                        <li>Labeled and prepared datasets for a vehicle detection and tracking project, improving model accuracy by 15%</li>
-                        <li>Investigated and studied cutting-edge models for object detection, keeping the lab at the forefront of computer vision research</li>
-                        <li>Exported deep learning models (YOLO) from PyTorch to ONNX format for deployment on edge devices, optimizing for real-time performance</li>
-                        <li>Benchmarked various YOLO models to determine the best option for speed estimation tasks, reducing inference time by 30%</li>
-                        <li>Containerized models and systems using Docker and utilized RabbitMQ to send data across workers, creating a scalable architecture</li>
-                    </ul>
-                    <div class="key-achievement">
-                        <span class="key-achievement-title">Key Technologies:</span> 
-                        PyTorch, YOLO, ONNX, Docker, RabbitMQ, Computer Vision, Object Detection
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-            
-        <section id="projects">
-            <h2><i class="fas fa-project-diagram"></i> Projects & Publications</h2>
-            
-            <div class="project-item">
-                <div class="project-header">
-                    <div class="project-details">
-                        <div class="project-title">Toward the Development of an Oral-diagnosis Framework</div>
-                        <div class="position">A Case Study of Teeth Segmentation and Numbering in Bitewing Radiographs via YOLO Models</div>
-                    </div>
-                    <div class="duration">
-                        <i class="far fa-calendar-alt"></i> 2024
-                    </div>
-                </div>
-                <p><strong>Role:</strong> Project Manager, Co-author</p>
-                <p><strong>Conference:</strong> The International Conference on Cybernetics and Innovations (ICCI 2024)</p>
-                <div class="award-badge"><i class="fas fa-award"></i> Gold Medal - 4th International Exhibition of Inventions of Thailand 2024</div>
-                <p><strong>DOI:</strong> <a href="https://doi.org/10.1109/ICCI60780.2024.10532585" target="_blank">10.1109/ICCI60780.2024.10532585</a></p>
-                
-                <div class="project-tech">
-                    <span>YOLO</span>
-                    <span>Computer Vision</span>
-                    <span>Medical Imaging</span>
-                    <span>Object Detection</span>
-                    <span>Web Architecture</span>
-                </div>
-                
-                <div class="achievements">
-                    <ul>
-                        <li>Led a cross-functional team of five engineers, a domain expert (dentist), and a supervisor to create an innovative oral-diagnosis framework</li>
-                        <li>Conducted thorough requirement-gathering sessions with dental professionals, ensuring the solution aligned with clinical objectives</li>
-                        <li>Designed and directed the execution of experiments utilizing YOLO models, achieving 94% accuracy in teeth segmentation and numbering</li>
-                        <li>Oversaw the design and setup of the web architecture for model deployment, enabling real-time diagnosis in clinical settings</li>
-                    </ul>
-                    <div class="key-achievement">
-                        <span class="key-achievement-title">Impact:</span> 
-                        This research contributes to the field of automated dental diagnostics and has potential applications in streamlining clinical workflows, reducing diagnostic time, and improving patient care.
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="education">
-            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-            <div class="education-item">
-                <div class="education-header">
-                    <div class="institution-details">
-                        <div class="institution">Thammasat University</div>
-                        <div class="position">Bachelor of Engineering, Major in Software Engineering (4th year)</div>
-                    </div>
-                    <div class="duration">
-                        <i class="far fa-calendar-alt"></i> Graduation: June 2025
-                    </div>
-                </div>
-                <div class="achievements">
-                    <ul>
-                        <li>GPA: 3.86/4.00</li>
-                        <li>Full scholarship recipient for entire 4-year program</li>
-                        <li>Dean's List recognition for academic excellence</li>
-                    </ul>
-                    <div class="key-achievement">
-                        <span class="key-achievement-title">Relevant Coursework:</span> 
-                        Machine Learning, Software Design, Database Systems, Computer Networks, Object-Oriented Programming, Software Requirements Engineering
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="involvement">
-            <h2><i class="fas fa-users"></i> Campus & Community Involvement</h2>
-            
-            <div class="involvement-item">
-                <div class="involvement-header">
-                    <div class="role-details">
-                        <div class="role">Part-time Tutor for TU-PINE, Thammasat University</div>
-                    </div>
-                    <div class="duration">
-                        <i class="far fa-calendar-alt"></i> Aug 2023 - Dec 2023 (4 months)
-                    </div>
-                </div>
-                <div class="achievements">
-                    <ul>
-                        <li>Tutored CN204 Probability and Random Processes for undergraduate engineering students</li>
-                        <li>Taught SF211 Object-Oriented Programming, helping students master core programming concepts</li>
-                        <li>Developed custom teaching materials to simplify complex concepts for diverse learning styles</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="involvement-item">
-                <div class="involvement-header">
-                    <div class="role-details">
-                        <div class="role">Head of Technical Core Team, Google Developer Student Club</div>
-                    </div>
-                    <div class="duration">
-                        <i class="far fa-calendar-alt"></i> Nov 2023 - Apr 2024 (8 months)
-                    </div>
-                </div>
-                <div class="achievements">
-                    <ul>
-                        <li>Managed a team of 15 members during the Introduction to Machine Learning event, ensuring effective coordination and task delegation</li>
-                        <li>Provided consultation and guidance to team members, helping them understand key machine learning concepts and implementation strategies</li>
-                        <li>Organized hands-on workshops that increased participation in club activities by 40%</li>
-                        <li>Developed practical coding exercises that helped bridge the gap between theoretical knowledge and real-world applications</li>
-                        <li>Created comprehensive documentation for workshops and learning materials that continue to be used by future club members</li>
-                    </ul>
-                </div>
-            </div>
-        </sections>
-    </body>
-    </html>
+            .skill-item {
+                background-color: var(--highlight-bg);
+                color: var(--primary-color);
+                padding: 8px 12px;
+                border-radius: 20px;
+                font-size: 0.95rem;
+                transition: all 0.2s;
+            }
 
+            .skill-item:hover {
+                background-color: var(--primary-color);
+                color: white;
+                transform: translateY(-2px);
+            }
 
-        <footer>
+            /* Project highlights */
+            .project-tech {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin: 10px 0;
+            }
+
+            .project-tech span {
+                background-color: #f0f5ff;
+                color: var(--primary-color);
+                padding: 4px 10px;
+                border-radius: 15px;
+                font-size: 0.85rem;
+            }
+
+            .award-badge {
+                display: inline-flex;
+                align-items: center;
+                background-color: #fdf2f8;
+                color: #e11d48;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-size: 0.9rem;
+                font-weight: 600;
+                margin-top: 10px;
+                gap: 5px;
+            }
+
+            /* Print friendly */
+            @media print {
+                body {
+                    background-color: white;
+                }
+
+                nav {
+                    display: none;
+                }
+
+                header {
+                    background: white;
+                    color: black;
+                    padding: 20px 0;
+                    text-align: left;
+                }
+
+                header::after {
+                    display: none;
+                }
+
+                .contact-links a {
+                    color: var(--primary-color);
+                    background: none;
+                    padding: 0;
+                }
+
+                section {
+                    box-shadow: none;
+                    margin: 20px 0;
+                    padding: 15px 0;
+                    page-break-inside: avoid;
+                }
+
+                .profile-summary {
+                    box-shadow: none;
+                    border: 1px solid #ddd;
+                }
+
+                .skill-item:hover {
+                    transform: none;
+                    background-color: var(--highlight-bg);
+                    color: var(--primary-color);
+                }
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                .nav-links {
+                    gap: 10px;
+                }
+
+                .education-header,
+                .experience-header,
+                .project-header,
+                .involvement-header {
+                    flex-direction: column;
+                    gap: 5px;
+                }
+
+                .duration {
+                    margin-top: 5px;
+                    width: 100%;
+                }
+
+                .company-details,
+                .institution-details,
+                .project-details,
+                .role-details {
+                    width: 100%;
+                }
+
+                .skills-container {
+                    grid-template-columns: 1fr;
+                }
+
+                .profile-info h1 {
+                    font-size: 2.2rem;
+                }
+
+                .profile-tagline {
+                    font-size: 1.1rem;
+                }
+
+                .nav-container {
+                    flex-direction: column;
+                    padding: 10px;
+                }
+
+                .nav-name {
+                    margin-bottom: 10px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-container">
+                <div class="nav-name">C. Pengchai</div>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#education">Education</a>
+                </div>
+            </div>
+        </nav>
+
+        <header>
             <div class="container">
-                <p>&copy; 2025 Chidsanuphong Pengchai. All Rights Reserved.</p>
+                <div class="profile-info">
+                    <h1>Chidsanuphong Pengchai</h1>
+                    <p class="profile-tagline">
+                        Software Engineer & Data Science Professional
+                    </p>
+                    <div class="contact-links">
+                        <a href="mailto:Chidsanuphong3@gmail.com"
+                            ><i class="fas fa-envelope"></i> Email</a
+                        >
+                        <a
+                            href="https://www.linkedin.com/in/chidsanuphong-pengchai/"
+                            target="_blank"
+                            ><i class="fab fa-linkedin"></i> LinkedIn</a
+                        >
+                        <a href="https://github.com/pcismyname" target="_blank"
+                            ><i class="fab fa-github"></i> GitHub</a
+                        >
+                        <a href="https://medium.com/@c.pengchai" target="_blank"
+                            ><i class="fab fa-medium"></i> Blogs</a
+                        >
+                    </div>
+                </div>
             </div>
-        </footer>
+        </header>
 
+        <div class="container">
+            <section class="profile-summary" id="about">
+                <p>
+                    Results-driven
+                    <span class="highlight">Software Engineer</span> and
+                    <span class="highlight">Data Science professional</span>
+                    with hands-on experience in machine learning, computer
+                    vision, and full-stack development. Proven track record of
+                    deploying ML models, optimizing algorithms, and building
+                    user-centered applications. Skilled in leading
+                    cross-functional teams and translating complex technical
+                    concepts for stakeholders. Currently completing a Bachelor's
+                    degree in Software Engineering on full scholarship.
+                </p>
+            </section>
 
+            <section id="skills">
+                <h2><i class="fas fa-tools"></i> Technical Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>
+                            <i class="fas fa-laptop-code"></i> Machine Learning
+                            & Data
+                        </h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">PyTorch</span>
+                            <span class="skill-item">NumPy</span>
+                            <span class="skill-item">Pandas</span>
+                            <span class="skill-item">GeoPandas</span>
+                            <span class="skill-item">Sci-Kit Learn</span>
+                            <span class="skill-item">YOLO Models</span>
+                            <span class="skill-item">Computer Vision</span>
+                            <span class="skill-item">Seaborn</span>
+                            <span class="skill-item">Data Analysis</span>
+                            <span class="skill-item">Model Deployment</span>
+                        </div>
+                    </div>
 
+                    <div class="skill-category">
+                        <h3>
+                            <i class="fas fa-server"></i> Backend &
+                            Infrastructure
+                        </h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Flask</span>
+                            <span class="skill-item">FastAPI</span>
+                            <span class="skill-item">MySQL</span>
+                            <span class="skill-item">MongoDB</span>
+                            <span class="skill-item">Docker</span>
+                            <span class="skill-item">Microsoft Azure</span>
+                            <span class="skill-item">MQTT</span>
+                            <span class="skill-item">RabbitMQ</span>
+                            <span class="skill-item">Linux</span>
+                            <span class="skill-item">ESXi</span>
+                            <span class="skill-item">Grafana</span>
+                        </div>
+                    </div>
 
-            
+                    <div class="skill-category">
+                        <h3>
+                            <i class="fas fa-paint-brush"></i> Frontend
+                            Development
+                        </h3>
+                        <div class="skill-list">
+                            <span class="skill-item">HTML</span>
+                            <span class="skill-item">CSS</span>
+                            <span class="skill-item">JavaScript</span>
+                            <span class="skill-item">React</span>
+                            <span class="skill-item">Svelte</span>
+                            <span class="skill-item">Streamlit</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>
+                            <i class="fas fa-code-branch"></i> Development Tools
+                        </h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Git</span>
+                            <span class="skill-item">GitHub</span>
+                            <span class="skill-item">Design Patterns</span>
+                            <span class="skill-item">Java</span>
+                            <span class="skill-item">Kotlin</span>
+                            <span class="skill-item">C/C++</span>
+                            <span class="skill-item">Excel</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>
+                            <i class="fas fa-user-tie"></i> Professional Skills
+                        </h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Leadership</span>
+                            <span class="skill-item">Team Management</span>
+                            <span class="skill-item">Problem-Solving</span>
+                            <span class="skill-item">Communication</span>
+                            <span class="skill-item">Mentorship</span>
+                            <span class="skill-item">Public Speaking</span>
+                            <span class="skill-item"
+                                >Workshop Facilitation</span
+                            >
+                            <span class="skill-item">Design Thinking</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3><i class="fas fa-language"></i> Languages</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">English (TOEIC 895)</span>
+                            <span class="skill-item">Thai (Native)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience">
+                <h2>
+                    <i class="fas fa-briefcase"></i> Professional Experience
+                </h2>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-details">
+                            <div class="company">
+                                The Siam Cement (Thung Song) Co, Ltd
+                            </div>
+                            <div class="position">
+                                Full-stack Developer (Co-op Internship)
+                            </div>
+                        </div>
+                        <div class="duration">
+                            <i class="far fa-calendar-alt"></i> Jan 2025 – May
+                            2025 (Expected)
+                        </div>
+                    </div>
+                    <div class="achievements">
+                        <ul>
+                            <li>
+                                Refactored legacy system code, improving
+                                maintainability and reducing technical debt by
+                                implementing modern design patterns
+                            </li>
+                            <li>
+                                Resolved technical issues and enhanced
+                                administrative features for the Job Request
+                                System used by multiple departments
+                            </li>
+                            <li>
+                                Applied user-centered design principles by
+                                gathering requirements directly from users
+                                (As-is) and developing tailored solutions for
+                                the maintenance department (To-be)
+                            </li>
+                        </ul>
+                        <div class="key-achievement">
+                            <span class="key-achievement-title"
+                                >Key Technologies:</span
+                            >
+                            Full-stack development, Requirements Engineering,
+                            System Optimization
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-details">
+                            <div class="company">
+                                Kasikorn Business-Technology Group (KLabs)
+                            </div>
+                            <div class="position">Data Science Intern</div>
+                        </div>
+                        <div class="duration">
+                            <i class="far fa-calendar-alt"></i> Jun 2024 – Nov
+                            2024 (6 months)
+                        </div>
+                    </div>
+                    <div class="achievements">
+                        <ul>
+                            <li>
+                                Developed and optimized web scraping algorithms
+                                to extract land map data for the Department of
+                                Land, successfully processing over 10,000
+                                records
+                            </li>
+                            <li>
+                                Conducted exploratory data analysis (EDA) on
+                                large land map datasets to uncover patterns and
+                                insights for business stakeholders
+                            </li>
+                            <li>
+                                Applied DBSCAN clustering algorithm to filter
+                                and organize land map data, specifically
+                                identifying and isolating village regions with
+                                92% accuracy
+                            </li>
+                            <li>
+                                Designed and implemented a machine learning
+                                model pipeline to classify land parcels into
+                                their respective villages
+                            </li>
+                            <li>
+                                Developed a Proof of Concept using the Segment
+                                Anything model (SAM) to segment satellite images
+                                for improved land classification
+                            </li>
+                        </ul>
+                        <div class="key-achievement">
+                            <span class="key-achievement-title"
+                                >Key Technologies:</span
+                            >
+                            Python, Pandas, GeoPandas, DBSCAN, Machine Learning,
+                            Segment Anything model (SAM), Web Scraping
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-details">
+                            <div class="company">
+                                CILS Lab, Thammasat University
+                            </div>
+                            <div class="position">Research Assistant</div>
+                        </div>
+                        <div class="duration">
+                            <i class="far fa-calendar-alt"></i> Jan 2023 – May
+                            2024 (1 year 5 months)
+                        </div>
+                    </div>
+                    <div class="achievements">
+                        <ul>
+                            <li>
+                                Labeled and prepared datasets for a vehicle
+                                detection and tracking project, improving model
+                                accuracy by 15%
+                            </li>
+                            <li>
+                                Investigated and studied cutting-edge models for
+                                object detection, keeping the lab at the
+                                forefront of computer vision research
+                            </li>
+                            <li>
+                                Exported deep learning models (YOLO) from
+                                PyTorch to ONNX format for deployment on edge
+                                devices, optimizing for real-time performance
+                            </li>
+                            <li>
+                                Benchmarked various YOLO models to determine the
+                                best option for speed estimation tasks, reducing
+                                inference time by 30%
+                            </li>
+                            <li>
+                                Containerized models and systems using Docker
+                                and utilized RabbitMQ to send data across
+                                workers, creating a scalable architecture
+                            </li>
+                        </ul>
+                        <div class="key-achievement">
+                            <span class="key-achievement-title"
+                                >Key Technologies:</span
+                            >
+                            PyTorch, YOLO, ONNX, Docker, RabbitMQ, Computer
+                            Vision, Object Detection
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects">
+                <h2>
+                    <i class="fas fa-project-diagram"></i> Projects &
+                    Publications
+                </h2>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-details">
+                            <div class="project-title">
+                                Toward the Development of an Oral-diagnosis
+                                Framework
+                            </div>
+                            <div class="position">
+                                A Case Study of Teeth Segmentation and Numbering
+                                in Bitewing Radiographs via YOLO Models
+                            </div>
+                        </div>
+                        <div class="duration">
+                            <i class="far fa-calendar-alt"></i> 2024
+                        </div>
+                    </div>
+                    <p><strong>Role:</strong> Project Manager, Co-author</p>
+                    <p>
+                        <strong>Conference:</strong> The International
+                        Conference on Cybernetics and Innovations (ICCI 2024)
+                    </p>
+                    <div class="award-badge">
+                        <i class="fas fa-award"></i> Gold Medal - 4th
+                        International Exhibition of Inventions of Thailand 2024
+                    </div>
+                    <p>
+                        <strong>DOI:</strong>
+                        <a
+                            href="https://doi.org/10.1109/ICCI60780.2024.10532585"
+                            target="_blank"
+                            >10.1109/ICCI60780.2024.10532585</a
+                        >
+                    </p>
+
+                    <div class="project-tech">
+                        <span>YOLO</span>
+                        <span>Computer Vision</span>
+                        <span>Medical Imaging</span>
+                        <span>Object Detection</span>
+                        <span>Web Architecture</span>
+                    </div>
+
+                    <div class="achievements">
+                        <ul>
+                            <li>
+                                Led a cross-functional team of five engineers, a
+                                domain expert (dentist), and a supervisor to
+                                create an innovative oral-diagnosis framework
+                            </li>
+                            <li>
+                                Conducted thorough requirement-gathering
+                                sessions with dental professionals, ensuring the
+                                solution aligned with clinical objectives
+                            </li>
+                            <li>
+                                Designed and directed the execution of
+                                experiments utilizing YOLO models, achieving 94%
+                                accuracy in teeth segmentation and numbering
+                            </li>
+                            <li>
+                                Oversaw the design and setup of the web
+                                architecture for model deployment, enabling
+                                real-time diagnosis in clinical settings
+                            </li>
+                        </ul>
+                        <div class="key-achievement">
+                            <span class="key-achievement-title">Impact:</span>
+                            This research contributes to the field of automated
+                            dental diagnostics and has potential applications in
+                            streamlining clinical workflows, reducing diagnostic
+                            time, and improving patient care.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="education">
+                <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                <div class="education-item">
+                    <div class="education-header">
+                        <div class="institution-details">
+                            <div class="institution">Thammasat University</div>
+                            <div class="position">
+                                Bachelor of Engineering, Major in Software
+                                Engineering (4th year)
+                            </div>
+                        </div>
+                        <div class="duration">
+                            <i class="far fa-calendar-alt"></i> Graduation: June
+                            2025
+                        </div>
+                    </div>
+                    <div class="achievements">
+                        <ul>
+                            <li>GPA: 3.86/4.00</li>
+                            <li>
+                                Full scholarship recipient for entire 4-year
+                                program
+                            </li>
+                            <li>
+                                Dean's List recognition for academic excellence
+                            </li>
+                        </ul>
+                        <div class="key-achievement">
+                            <span class="key-achievement-title"
+                                >Relevant Coursework:</span
+                            >
+                            Machine Learning, Software Design, Database Systems,
+                            Computer Networks, Object-Oriented Programming,
+                            Software Requirements Engineering
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="involvement">
+                <h2>
+                    <i class="fas fa-users"></i> Campus & Community Involvement
+                </h2>
+
+                <div class="involvement-item">
+                    <div class="involvement-header">
+                        <div class="role-details">
+                            <div class="role">
+                                Part-time Tutor for TU-PINE, Thammasat
+                                University
+                            </div>
+                        </div>
+                        <div class="duration">
+                            <i class="far fa-calendar-alt"></i> Aug 2023 - Dec
+                            2023 (4 months)
+                        </div>
+                    </div>
+                    <div class="achievements">
+                        <ul>
+                            <li>
+                                Tutored CN204 Probability and Random Processes
+                                for undergraduate engineering students
+                            </li>
+                            <li>
+                                Taught SF211 Object-Oriented Programming,
+                                helping students master core programming
+                                concepts
+                            </li>
+                            <li>
+                                Developed custom teaching materials to simplify
+                                complex concepts for diverse learning styles
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="involvement-item">
+                    <div class="involvement-header">
+                        <div class="role-details">
+                            <div class="role">
+                                Head of Technical Core Team, Google Developer
+                                Student Club
+                            </div>
+                        </div>
+                        <div class="duration">
+                            <i class="far fa-calendar-alt"></i> Nov 2023 - Apr
+                            2024 (8 months)
+                        </div>
+                    </div>
+                    <div class="achievements">
+                        <ul>
+                            <li>
+                                Managed a team of 15 members during the
+                                Introduction to Machine Learning event, ensuring
+                                effective coordination and task delegation
+                            </li>
+                            <li>
+                                Provided consultation and guidance to team
+                                members, helping them understand key machine
+                                learning concepts and implementation strategies
+                            </li>
+                            <li>
+                                Organized hands-on workshops that increased
+                                participation in club activities by 40%
+                            </li>
+                            <li>
+                                Developed practical coding exercises that helped
+                                bridge the gap between theoretical knowledge and
+                                real-world applications
+                            </li>
+                            <li>
+                                Created comprehensive documentation for
+                                workshops and learning materials that continue
+                                to be used by future club members
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Chidsanuphong Pengchai. All Rights Reserved.</p>
+        </div>
+    </footer>
+
     <script>
         // Add smooth scrolling for navigation links
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('nav a').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll("nav a").forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
                     e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
+
+                    const targetId = this.getAttribute("href");
                     const targetElement = document.querySelector(targetId);
-                    
+
                     if (targetElement) {
                         window.scrollTo({
                             top: targetElement.offsetTop - 70,
-                            behavior: 'smooth'
+                            behavior: "smooth",
                         });
                     }
                 });
             });
         });
     </script>
+</html>
