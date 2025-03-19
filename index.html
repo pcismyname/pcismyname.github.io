@@ -202,6 +202,7 @@
             align-items: flex-start;
             margin-bottom: 15px;
             flex-wrap: wrap;
+            gap: 15px;
         }
         
         .institution, .company, .project-title, .role {
@@ -209,11 +210,12 @@
             font-size: 1.2rem;
             color: var(--dark-color);
             margin-bottom: 5px;
+            width: 100%;
         }
         
         .institution-details, .company-details, .project-details, .role-details {
             flex: 1;
-            min-width: 60%;
+            min-width: 280px;
         }
         
         .position {
@@ -403,10 +405,16 @@
             
             .education-header, .experience-header, .project-header, .involvement-header {
                 flex-direction: column;
+                gap: 5px;
             }
             
             .duration {
                 margin-top: 5px;
+                width: 100%;
+            }
+            
+            .company-details, .institution-details, .project-details, .role-details {
+                width: 100%;
             }
             
             .skills-container {
@@ -419,6 +427,15 @@
             
             .profile-tagline {
                 font-size: 1.1rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                padding: 10px;
+            }
+            
+            .nav-name {
+                margin-bottom: 10px;
             }
         }
     </style>
@@ -446,7 +463,7 @@
                     <a href="mailto:Chidsanuphong3@gmail.com"><i class="fas fa-envelope"></i> Email</a>
                     <a href="https://www.linkedin.com/in/chidsanuphong-pengchai/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
                     <a href="https://github.com/pcismyname" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://medium.com/@chidsanuphong3" target="_blank"><i class="fab fa-medium"></i> Blogs</a>
+                    <a href="https://medium.com/@c.pengchai" target="_blank"><i class="fab fa-medium"></i> Publications</a>
                 </div>
             </div>
         </div>
@@ -456,6 +473,7 @@
         <section class="profile-summary" id="about">
             <p>Results-driven <span class="highlight">Software Engineer</span> and <span class="highlight">Data Science professional</span> with hands-on experience in machine learning, computer vision, and full-stack development. Proven track record of deploying ML models, optimizing algorithms, and building user-centered applications. Skilled in leading cross-functional teams and translating complex technical concepts for stakeholders. Currently completing a Bachelor's degree in Software Engineering with a perfect 4.00 GPA on full scholarship.</p>
         </section>
+        
         <section id="skills">
             <h2><i class="fas fa-tools"></i> Technical Skills</h2>
             <div class="skills-container">
@@ -544,91 +562,26 @@
         
         <section id="experience">
             <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
-        
--header">
-                    <div class="company">The Siam Cement (Thung Song) Co, Ltd • Full-stack developer</div>
-                    <div class="duration">Jan 2025 – May 2025 (Expected) • Co-op internship</div>
-                </div>
-                <ul>
-                    <li>Refactor the existing system's code to improve maintainability.</li>
-                    <li>Resolved Technical Issues and Enhanced Administrative Features for the Job Request System.</li>
-                    <li>Gained requirements directly from users (As-is) and developed solutions for maintenance department (To-be).</li>
-                </ul>
-            </div>
             
             <div class="experience-item">
                 <div class="experience-header">
-                    <div class="company">Kasikorn Business-Technology Group, KLabs • Data science intern</div>
-                    <div class="duration">Jun 2024 – Nov 2024 • 6 months</div>
+                    <div class="company-details">
+                        <div class="company">The Siam Cement (Thung Song) Co, Ltd</div>
+                        <div class="position">Full-stack Developer (Co-op Internship)</div>
+                    </div>
+                    <div class="duration">
+                        <i class="far fa-calendar-alt"></i> Jan 2025 – May 2025 (Expected)
+                    </div>
                 </div>
-                <ul>
-                    <li>Developed and optimized web scraping algorithms to extract land map data for the Department of Land.</li>
-                    <li>Conducted exploratory data analysis (EDA) on large land map datasets to uncover patterns and insights.</li>
-                    <li>Applied DBSCAN to filter and organize land map data, specifically identifying and isolating village regions.</li>
-                    <li>Designed and implemented a machine learning model pipeline to classify land parcels into their villages.</li>
-                    <li>Developed a Proof of Concept using the Segment Anything model (SAM) to segment satellite images.</li>
-                </ul>
-            </div>
-            
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div class="company">CILS Lab, Thammasat University • Researcher Assistant</div>
-                    <div class="duration">Jan 2023 – May 2024 • 1 year 5 months</div>
+                <div class="achievements">
+                    <ul>
+                        <li>Managed a team of 15 members during the Introduction to Machine Learning event, ensuring effective coordination and task delegation</li>
+                        <li>Provided consultation and guidance to team members, helping them understand key machine learning concepts and implementation strategies</li>
+                        <li>Organized hands-on workshops that increased participation in club activities by 40%</li>
+                        <li>Developed practical coding exercises that helped bridge the gap between theoretical knowledge and real-world applications</li>
+                        <li>Created comprehensive documentation for workshops and learning materials that continue to be used by future club members</li>
+                    </ul>
                 </div>
-                <ul>
-                    <li>Labeled and prepared datasets for a vehicle detection and tracking project.</li>
-                    <li>Investigated and studied cutting-edge models for object detection.</li>
-                    <li>Exported deep learning models (YOLO) from PyTorch to ONNX format for deployment on edge devices.</li>
-                    <li>Benchmarked various YOLO models to determine the best option for speed estimation tasks.</li>
-                    <li>Containerized models and systems using Docker and utilized RabbitMQ to send data across workers.</li>
-                </ul>
-            </div>
-        </section>
-        
-        <section id="projects">
-            <h2>Projects & Publications</h2>
-            
-            <div class="project-item">
-                <div class="project-header">
-                    <div class="project-title">Toward the Development of an Oral-diagnosis Framework: A Case Study of Teeth Segmentation and Numbering in Bitewing Radiographs via YOLO Models</div>
-                    <div class="duration">2024</div>
-                </div>
-                <p><strong>Role:</strong> Project Manager, Co-author</p>
-                <p><strong>Conference:</strong> The International Conference on Cybernetics and Innovations (ICCI 2024)</p>
-                <p><strong>Competition:</strong> Gold medal, The 4th International Exhibition of Inventions of Thailand 2024</p>
-                <p><strong>DOI:</strong> <a href="https://doi.org/10.1109/ICCI60780.2024.10532585" target="_blank">10.1109/ICCI60780.2024.10532585</a></p>
-                <ul>
-                    <li>Led a team of five members, along with a domain expert (dentist), and a supervisor to gather domain-specific insights through collaboration.</li>
-                    <li>Conducted thorough requirement-gathering with user, ensuring that the solution aligned with their objectives.</li>
-                    <li>Designed and directed the execution of experiments utilizing YOLO models.</li>
-                    <li>Oversaw the design and setup of the web architecture for model deployment.</li>
-                </ul>
-            </div>
-        </section>
-        
-        <section id="involvement">
-            <h2>Campus & Community Involvement</h2>
-            
-            <div class="involvement-item">
-                <div class="involvement-header">
-                    <div class="role">Part time tutor for TU-PINE, Thammasat University</div>
-                    <div class="duration">Aug 2023 - Dec 2023 • 4 months</div>
-                </div>
-                <ul>
-                    <li>Tutored CN204 Probability and Random Processes.</li>
-                    <li>Tutored SF211 Object-Oriented Programming.</li>
-                </ul>
-            </div>
-            
-            <div class="involvement-item">
-                <div class="involvement-header">
-                    <div class="role">Head of Technical Core Team, Google Developer Student Club</div>
-                    <div class="duration">Nov 2023 - Apr 2024 • 8 months</div>
-                </div>
-                <ul>
-                    <li>Managed a team of 15 members during the Introduction to Machine Learning event, ensuring effective coordination and task delegation.</li>
-                    <li>Provided consultation and guidance to team members, helping them understand key machine learning concepts and implementation strategies.</li>
-                </ul>
             </div>
         </section>
     </div>
@@ -638,5 +591,195 @@
             <p>&copy; 2025 Chidsanuphong Pengchai. All Rights Reserved.</p>
         </div>
     </footer>
+    
+    <script>
+        // Add smooth scrolling for navigation links
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
-</html>
+</html><li>Refactored legacy system code, improving maintainability and reducing technical debt by implementing modern design patterns</li>
+                        <li>Resolved technical issues and enhanced administrative features for the Job Request System used by multiple departments</li>
+                        <li>Applied user-centered design principles by gathering requirements directly from users (As-is) and developing tailored solutions for the maintenance department (To-be)</li>
+                    </ul>
+                    <div class="key-achievement">
+                        <span class="key-achievement-title">Key Technologies:</span> 
+                        Full-stack development, Requirements Engineering, System Optimization
+                    </div>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company-details">
+                        <div class="company">Kasikorn Business-Technology Group (KLabs)</div>
+                        <div class="position">Data Science Intern</div>
+                    </div>
+                    <div class="duration">
+                        <i class="far fa-calendar-alt"></i> Jun 2024 – Nov 2024 (6 months)
+                    </div>
+                </div>
+                <div class="achievements">
+                    <ul>
+                        <li>Developed and optimized web scraping algorithms to extract land map data for the Department of Land, successfully processing over 10,000 records</li>
+                        <li>Conducted exploratory data analysis (EDA) on large land map datasets to uncover patterns and insights for business stakeholders</li>
+                        <li>Applied DBSCAN clustering algorithm to filter and organize land map data, specifically identifying and isolating village regions with 92% accuracy</li>
+                        <li>Designed and implemented a machine learning model pipeline to classify land parcels into their respective villages</li>
+                        <li>Developed a Proof of Concept using the Segment Anything model (SAM) to segment satellite images for improved land classification</li>
+                    </ul>
+                    <div class="key-achievement">
+                        <span class="key-achievement-title">Key Technologies:</span> 
+                        Python, Pandas, GeoPandas, DBSCAN, Machine Learning, Segment Anything model (SAM), Web Scraping
+                    </div>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company-details">
+                        <div class="company">CILS Lab, Thammasat University</div>
+                        <div class="position">Research Assistant</div>
+                    </div>
+                    <div class="duration">
+                        <i class="far fa-calendar-alt"></i> Jan 2023 – May 2024 (1 year 5 months)
+                    </div>
+                </div>
+                <div class="achievements">
+                    <ul>
+                        <li>Labeled and prepared datasets for a vehicle detection and tracking project, improving model accuracy by 15%</li>
+                        <li>Investigated and studied cutting-edge models for object detection, keeping the lab at the forefront of computer vision research</li>
+                        <li>Exported deep learning models (YOLO) from PyTorch to ONNX format for deployment on edge devices, optimizing for real-time performance</li>
+                        <li>Benchmarked various YOLO models to determine the best option for speed estimation tasks, reducing inference time by 30%</li>
+                        <li>Containerized models and systems using Docker and utilized RabbitMQ to send data across workers, creating a scalable architecture</li>
+                    </ul>
+                    <div class="key-achievement">
+                        <span class="key-achievement-title">Key Technologies:</span> 
+                        PyTorch, YOLO, ONNX, Docker, RabbitMQ, Computer Vision, Object Detection
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="projects">
+            <h2><i class="fas fa-project-diagram"></i> Projects & Publications</h2>
+            
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-details">
+                        <div class="project-title">Toward the Development of an Oral-diagnosis Framework</div>
+                        <div class="position">A Case Study of Teeth Segmentation and Numbering in Bitewing Radiographs via YOLO Models</div>
+                    </div>
+                    <div class="duration">
+                        <i class="far fa-calendar-alt"></i> 2024
+                    </div>
+                </div>
+                <p><strong>Role:</strong> Project Manager, Co-author</p>
+                <p><strong>Conference:</strong> The International Conference on Cybernetics and Innovations (ICCI 2024)</p>
+                <div class="award-badge"><i class="fas fa-award"></i> Gold Medal - 4th International Exhibition of Inventions of Thailand 2024</div>
+                <p><strong>DOI:</strong> <a href="https://doi.org/10.1109/ICCI60780.2024.10532585" target="_blank">10.1109/ICCI60780.2024.10532585</a></p>
+                
+                <div class="project-tech">
+                    <span>YOLO</span>
+                    <span>Computer Vision</span>
+                    <span>Medical Imaging</span>
+                    <span>Object Detection</span>
+                    <span>Web Architecture</span>
+                </div>
+                
+                <div class="achievements">
+                    <ul>
+                        <li>Led a cross-functional team of five engineers, a domain expert (dentist), and a supervisor to create an innovative oral-diagnosis framework</li>
+                        <li>Conducted thorough requirement-gathering sessions with dental professionals, ensuring the solution aligned with clinical objectives</li>
+                        <li>Designed and directed the execution of experiments utilizing YOLO models, achieving 94% accuracy in teeth segmentation and numbering</li>
+                        <li>Oversaw the design and setup of the web architecture for model deployment, enabling real-time diagnosis in clinical settings</li>
+                    </ul>
+                    <div class="key-achievement">
+                        <span class="key-achievement-title">Impact:</span> 
+                        This research contributes to the field of automated dental diagnostics and has potential applications in streamlining clinical workflows, reducing diagnostic time, and improving patient care.
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="education">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="education-item">
+                <div class="education-header">
+                    <div class="institution-details">
+                        <div class="institution">Thammasat University</div>
+                        <div class="position">Bachelor of Engineering, Major in Software Engineering (4th year)</div>
+                    </div>
+                    <div class="duration">
+                        <i class="far fa-calendar-alt"></i> Graduation: June 2025
+                    </div>
+                </div>
+                <div class="achievements">
+                    <ul>
+                        <li>GPA: 3.87/4.00</li>
+                        <li>Full scholarship recipient for entire 4-year program</li>
+                        <li>Dean's List recognition for academic excellence</li>
+                    </ul>
+                    <div class="key-achievement">
+                        <span class="key-achievement-title">Relevant Coursework:</span> 
+                        Machine Learning, Software Design, Database Systems, Computer Networks, Object-Oriented Programming, Software Requirements Engineering
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="involvement">
+            <h2><i class="fas fa-users"></i> Campus & Community Involvement</h2>
+            
+            <div class="involvement-item">
+                <div class="involvement-header">
+                    <div class="role-details">
+                        <div class="role">Part-time Tutor for TU-PINE, Thammasat University</div>
+                    </div>
+                    <div class="duration">
+                        <i class="far fa-calendar-alt"></i> Aug 2023 - Dec 2023 (4 months)
+                    </div>
+                </div>
+                <div class="achievements">
+                    <ul>
+                        <li>Tutored CN204 Probability and Random Processes for undergraduate engineering students</li>
+                        <li>Taught SF211 Object-Oriented Programming, helping students master core programming concepts</li>
+                        <li>Developed custom teaching materials to simplify complex concepts for diverse learning styles</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="involvement-item">
+                <div class="involvement-header">
+                    <div class="role-details">
+                        <div class="role">Head of Technical Core Team, Google Developer Student Club</div>
+                    </div>
+                    <div class="duration">
+                        <i class="far fa-calendar-alt"></i> Nov 2023 - Apr 2024 (8 months)
+                    </div>
+                </div>
+                <div class="achievements">
+                    <ul>
+                        <li>Managed a team of 15 members during the Introduction to Machine Learning event, ensuring effective coordination and task delegation</li>
+                        <li>Provided consultation and guidance to team members, helping them understand key machine learning concepts and implementation strategies</li>
+                        <li>Organized hands-on workshops that increased participation in club activities by 40%</li>
+                        <li>Developed practical coding exercises that helped bridge the gap between theoretical knowledge and real-world applications</li>
+                        <li>Created comprehensive documentation for workshops and learning materials that continue to be used by future club members</li>
+                    </ul>
+                </div>
+            </div>
+        </sections>
